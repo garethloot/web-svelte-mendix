@@ -3,7 +3,7 @@
     "entryPoints": {
       "main": "main.js",
       "ui": {
-        "settings": "settings.js"
+        "tab": "tab.js"
       }
     }
   }

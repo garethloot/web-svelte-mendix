@@ -48,6 +48,7 @@ You can set this in the shortcut settings for mendix
    - Replace the path with the actual path to your Mendix project
    - Make sure to use forward slashes (/) even on Windows
    - The extension name in the path should match the `componentName` in your `main.ts` file (without the "extension/" prefix)
+   - You should probably make sure that all references to `extension-name` in the files should be changed to the name that you want.
 
 ## Development
 
@@ -222,13 +223,27 @@ if (args.menuId === "your-extension-name.MenuItem2") {
 }
 ```
 
+6. Add new tab to `public/manifest.json` to let mendix studio know about the new entry point. You are pointing to the names from the `vite.config.ts` input.
+
+```json
+{
+  "mendixComponent": {
+    "entryPoints": {
+      "main": "main.js",
+      "ui": {
+        "tab1": "tab1.js",
+        "tab2": "tab2.js"
+      }
+    }
+  }
+}
+```
+
 ## Troubleshooting
 
 ### Extension not showing up in Mendix
 
 - Verify that your build output is correctly configured in the `.env` file
-- Check the Mendix Studio Pro logs for any errors
-- Ensure that your extension is properly exported in the `main.ts` file
 
 ### Build issues
 

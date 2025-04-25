@@ -16,7 +16,7 @@ export default defineConfig(({ command, mode }) => {
       rollupOptions: {
         input: {
           ...(isProd ? { main: "src/main.ts" } : {}),
-          settings: "src/ui/tab/index.ts",
+          tab: "src/ui/tab/index.ts",
           style: "src/style.css",
         },
         ...(isProd
